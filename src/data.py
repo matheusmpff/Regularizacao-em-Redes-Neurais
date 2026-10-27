@@ -53,5 +53,4 @@ class ExperimentResult:
         )
         plt.xlabel("Valores dos pesos")
         plt.ylabel("Densidade")
-        plt.savefig("comparacao_pesos.png",dpi=300,bbox_inches="tight")
-        
+        plt.savefig("../media/imgs/comparacao_pesos.png",dpi=300,bbox_inches="tight")
