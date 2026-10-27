@@ -1,0 +1,14 @@
+# Ambiente virtual
+.venv/
+venv/
+
+# Cache do Python
+__pycache__/
+*.py[cod]
+
+# Arquivos gerados pelo Manim
+media/
+
+# Configurações locais de editores
+.vscode/
+.idea/
