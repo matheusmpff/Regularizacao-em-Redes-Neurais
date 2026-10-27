@@ -4,9 +4,6 @@ from tensorflow import keras
 from tensorflow.keras import layers, regularizers
 from sklearn.datasets import make_moons
 from sklearn.model_selection import train_test_split
-from matplotlib import pyplot as plt
-import seaborn as sns
-
 
 from data import ExperimentData, ExperimentResult
 
@@ -27,10 +24,7 @@ def generate_data():
     X_train, X_test, y_train, y_test = train_test_split(X,y, test_size=0.25,random_state=RANDOM_STATE)
     
     return ExperimentData(X,y,X_train,y_train,X_test,y_test)
-    
-
-
-    
+     
 def create_model(l2 = 0 ):
     reg = None
     if l2 !=0:
@@ -119,6 +113,3 @@ def run_models():
         weights_with_l2
     )
     return results,data
-    
-    
-run_models()
