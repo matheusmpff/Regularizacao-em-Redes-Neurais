@@ -8,6 +8,7 @@ from sklearn.model_selection import train_test_split
 from data import ExperimentData, ExperimentResult
 
 RANDOM_STATE = 42
+EPOCHS = 300
 
 np.random.seed(RANDOM_STATE)
 tf.keras.utils.set_random_seed(RANDOM_STATE)
@@ -56,7 +57,7 @@ def run_models():
     model_without_l2.fit(
         data.X_train,
         data.y_train,
-        epochs=220,
+        epochs=EPOCHS,
         batch_size=32,
         shuffle=True,
         verbose=0
@@ -64,7 +65,7 @@ def run_models():
     model_with_l2.fit(
         data.X_train,
         data.y_train,
-        epochs=220,
+        epochs=EPOCHS,
         batch_size=32,
         shuffle=True,
         verbose=0
