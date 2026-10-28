@@ -112,8 +112,8 @@ class ExperimentResult:
         )
         plt.xlabel("Valores dos pesos")
         plt.ylabel("Densidade")
-        plt.savefig("../media/imgs/comparacao_pesos.png",dpi=300,bbox_inches="tight")
+        plt.savefig("media/imgs/comparacao_pesos.png",dpi=300,bbox_inches="tight")
     
     def create_models_scatterplots(self,data:ExperimentData):
-        create_scatterplot(self.model_without_l2,data,"../media/imgs/scatterplot.png")
-        create_scatterplot(self.model_with_l2,data,"../media/imgs/scatterplot2.png")      
+        create_scatterplot(self.model_without_l2,data,"media/imgs/scatterplot.png")
+        create_scatterplot(self.model_with_l2,data,"media/imgs/scatterplot2.png")      

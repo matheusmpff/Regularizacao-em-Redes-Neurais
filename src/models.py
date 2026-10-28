@@ -113,4 +113,6 @@ def run_models():
         weights_without_l2,
         weights_with_l2
     )
+    results.create_models_scatterplots(data)
+    results.create_weights_hist()
     return results,data
