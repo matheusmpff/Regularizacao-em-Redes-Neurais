@@ -24,7 +24,7 @@ def generate_data():
     X_train, X_test, y_train, y_test = train_test_split(X,y, test_size=0.25,random_state=RANDOM_STATE)
     
     return ExperimentData(X,y,X_train,y_train,X_test,y_test)
-     
+
 def create_model(l2 = 0 ):
     reg = None
     if l2 !=0:
