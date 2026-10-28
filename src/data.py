@@ -4,9 +4,12 @@ from matplotlib import pyplot as plt
 import seaborn as sns
 
 
-    
-
 class ExperimentData:
+    """
+    Classe que visa armazena os dados artificiais gerados
+    usando scikit-learn
+    """
+    
     def __init__(self,X,y,X_train,y_train,X_test,y_test):
         #Atributos
         self.X = X
@@ -17,6 +20,11 @@ class ExperimentData:
         self.y_test = y_test
 
 def create_scatterplot(model, data:ExperimentData, caminho):
+    """
+    Cria um scatterplot com os dados do experimento e usando
+    o modelo fornecido. Por fim, salva no caminho indicado
+    """
+    
     x_min , x_max= -2, 3
     y_min, y_max= -2, 2
     
@@ -24,12 +32,13 @@ def create_scatterplot(model, data:ExperimentData, caminho):
         np.linspace(x_min,x_max,200),
         np.linspace(y_min,y_max,200)
     )
-    
+    # Cria grid de pontos 200x200
     grid = np.c_[xx.ravel(), yy.ravel()]
+    # Faz previsão com o modelo indicado para saber a classificação dos pontos na grid
     probability = model.predict(grid,verbose=0).reshape(xx.shape)
     
     fig, ax = plt.subplots(figsize=(8, 4.2), dpi=300)
-    
+    # Colore o grid para mostrar as regiões de classificação
     ax.contourf(
         xx,
         yy,
@@ -54,7 +63,7 @@ def create_scatterplot(model, data:ExperimentData, caminho):
         "x2": data.X_train[:,1],
         "classe": data.y_train
     })
-    
+    # Fax o plot dos pontos usados no treino
     sns.scatterplot(
         data=df_train,
         x="x1",
@@ -71,6 +80,16 @@ def create_scatterplot(model, data:ExperimentData, caminho):
     plt.savefig(caminho,dpi=300,bbox_inches="tight")
     
 class ExperimentResult:
+    """
+    Classe responsável por armazenar os resultados do experimento
+    e ter funções de criação de gráficos com base nesses dados
+    armazenados. 
+    
+    Dois métodos são criados, um para scatterplot das regiões de
+    classificação e outro para um histograma da distribuição dos
+    pesos em cada MLP.
+    """
+    
     def __init__(
         self,
         model_without_l2,
