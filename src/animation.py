@@ -58,7 +58,7 @@ def train_explanation(self):
     explicacao = Text(
         "Vamos treinar duas MLP's com os mesmos dados, uma usando regularização e outra não",
         font_size=24
-    ).to_edge(UP*0.6)
+    ).to_edge(ORIGIN)
     self.play(Write(explicacao))
     self.wait(2)
     self.play(FadeOut(explicacao))
@@ -66,7 +66,7 @@ def train_explanation(self):
     status = Text(
         "Treinando as MLP's ...",
         font_size=24
-    ).to_edge(UP*0.6)
+    ).to_edge(ORIGIN)
     
     self.play(FadeIn(status))
     self.wait(2)

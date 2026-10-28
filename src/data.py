@@ -118,19 +118,22 @@ class ExperimentResult:
             bins=55,
             ax=ax,
             color="#253DA8",
-            stat="density",
-            alpha=0.6
+            stat="count",
+            alpha=0.6,
+            label="Com L2"
         )
+
         sns.histplot(
             data=self.weights_without_l2,
             bins=55,
             ax=ax,
             color="#C02525",
-            stat="density",
-            alpha=0.6
+            stat="count",
+            alpha=0.6,
+            label="Sem L2"
         )
         plt.xlabel("Valores dos pesos")
-        plt.ylabel("Densidade")
+        plt.ylabel("Quantidade dos pesos")
         plt.savefig("media/imgs/comparacao_pesos.png",dpi=300,bbox_inches="tight")
     
     def create_models_scatterplots(self,data:ExperimentData):
